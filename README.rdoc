@@ -1,28 +1,43 @@
-== README
+Redis
+=================
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Introduction
+---------
 
-Things you may want to cover:
+This is a small rails application to demonstrate how redis is used in order to aid my own learning.
 
-* Ruby version
+About Redis
+---------
 
-* System dependencies
+Redis is an open source, advanced key-value store. It is a non-sql database used for building high-performance applications.
 
-* Configuration
+Using Redis for the first Time
+---------
 
-* Database creation
+The first thing I did after setting up the rails application was to add the redis gem to the gemfile. This allowed me to play around with
+the a redis client in the rails console.
 
-* Database initialization
+```
+redis = Redis.new(:host =>'localhost', :post => 6379)
+```
+Redis will automatically connect to localhost:6379(the default) so it is not necessary to include the :post key-value pair.
 
-* How to run the test suite
+The Redis server also has to be running in order to create an instance of a Redis Client.
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+redis-server
+```
+The above command will run the server.
 
-* Deployment instructions
+In the rails console now, you can set a kew-value pair.
 
-* ...
+```
+> redis.set('superman', 'clark kent')
+=> "OK"
+```
+and use the 'get' method to retrieve the value for redis:
 
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+```
+> redis.get('superman')
+=> "clark kent"
+```
