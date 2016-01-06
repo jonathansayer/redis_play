@@ -47,7 +47,7 @@ and use the 'get' method to retrieve the value for redis:
 Commonly used Methods in Redis
 ---------
 
-* INCR   - the increment method will perminantely increment the value of the key by one, if that value is an integer. Incrementing a float, boolean or string will result in a Command Error.
+* INCR   - the increment method will permanently increment the value of the key by one, if that value is an integer. Incrementing a float, boolean or string will result in a Command Error.
 
  ```
  > redis.set('integer', 10)
@@ -56,3 +56,8 @@ Commonly used Methods in Redis
  => "11"
  > redis.get('integer')
  => 11
+ > redis.set('float', 0.5)
+ => "OK"
+ > redis.intr('float')
+ => Redis::CommandError: ERR value is not an integer or out of range
+ ```
