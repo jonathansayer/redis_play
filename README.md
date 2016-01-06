@@ -21,6 +21,7 @@ the a redis client in the rails console.
 redis = Redis.new(:host =>'localhost', :post => 6379)
 ```
 Redis will automatically connect to localhost:6379(the default) so it is not necessary to include the :post key-value pair.
+If the :host key is ommitted, then Redis will connect to the default IP address 127.0.0.1.
 
 The Redis server also has to be running in order to create an instance of a Redis Client.
 
