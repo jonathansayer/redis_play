@@ -47,7 +47,7 @@ and use the 'get' method to retrieve the value for redis:
 Commonly used Methods in Redis
 ---------
 
-* INCR   - the increment method will permanently increment the value of the key by one, if that value is an integer. Incrementing a float, boolean or string will result in a Command Error.
+* INCR   - The increment method will permanently increment the value of the key by one, if that value is an integer. Incrementing a float, boolean or string will result in a Command Error.
 
  ```
  > redis.set('integer', 10)
@@ -61,3 +61,11 @@ Commonly used Methods in Redis
  > redis.intr('float')
  => Redis::CommandError: ERR value is not an integer or out of range
  ```
+
+ * DEL  - The delete method will, surprisingly, delete the key value pair.
+
+ ```
+ > redis.del('float')
+ => 1
+ > redis.get('float')
+ => nil
