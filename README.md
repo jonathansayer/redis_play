@@ -62,7 +62,7 @@ Commonly used Methods in Redis
  => Redis::CommandError: ERR value is not an integer or out of range
  ```
 
- * DEL  - The delete method will, surprisingly, delete the key value pair.
+* DEL  - The delete method will, surprisingly, delete the key value pair.
 
  ```
  > redis.del('float')
