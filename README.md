@@ -42,3 +42,17 @@ and use the 'get' method to retrieve the value for redis:
 > redis.get('superman')
 => "clark kent"
 ```
+
+
+Commonly used Methods in Redis
+---------
+
+* INCR   - the increment method will perminantely increment the value of the key by one, if that value is an integer. Incrementing a float, boolean or string will result in a Command Error.
+
+ ```
+ > redis.set('integer', 10)
+ => "OK"
+ > redis.incr('integer')
+ => "11"
+ > redis.get('integer')
+ => 11
