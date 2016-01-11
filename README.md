@@ -62,6 +62,25 @@ Commonly used Methods in Redis
  => Redis::CommandError: ERR value is not an integer or out of range
  ```
 
+ *INCR is what is know as an atomic operation. That means that if one clint increments the value, integer, a second client will have access to this new value.*
+
+ ```
+ > redis1 = Redis.new(:host =>'localhost', :post => 6379)
+ => #<Redis client v3.0.7 for redis://localhost:6379/0>
+ > redis2 = Redis.new(:host =>'localhost', :post => 6379)
+ => #<Redis client v3.0.7 for redis://localhost:6379/0>
+ > redis1.set("integer", 10)
+ => "OK"
+ > redis1.incr("integer")
+ => 11
+ > redis2.get("integer")
+ => 11
+ > redis2.incr("integer")
+ => 12
+ > redis1.get("integer")
+ => 12
+ ```
+
 * DEL  - The delete method will, surprisingly, delete the key value pair.
 
  ```
